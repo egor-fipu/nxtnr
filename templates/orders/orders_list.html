@@ -1,0 +1,28 @@
+{% extends "includes/base.html" %}
+{% block title %}Список заказов{% endblock %}
+{% block header %}{% endblock %}
+{% block content %}
+  <div class="container">
+    <h1>Список заказов</h1>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Товар</th>
+        <th scope="col">Тип</th>
+        <th scope="col">Дата доставки</th>
+        <th scope="col">Адреса</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for order in orders %}
+        <tr class="table-active">
+          <th scope="row"><a>{{ order.product }}</a></th>
+          <td>{{ order.type }}</td>
+          <td>{{ order.delivery_date|date:"d M Y" }}</td>
+          <td>{% for i in order.addresses.all %}{{ i.address }}<br>{% endfor %}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

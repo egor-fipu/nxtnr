@@ -1,0 +1,17 @@
+{% extends "includes/base.html" %}
+
+{% load bootstrap4 %}
+{% block title %}Добавление заказа{% endblock %}
+
+{% block content %}
+  {% block one %}
+    <h2>Добавление заказа</h2>
+  {% endblock one %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form layout='horizontal' %}
+    {% bootstrap_formset address_form layout='horizontal' %}
+
+    {% buttons submit='Добавить' %}{% endbuttons %}
+  </form>
+{% endblock %}

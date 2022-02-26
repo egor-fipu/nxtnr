@@ -1,0 +1,28 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>{% block title %}Главная {% endblock %}- Заказы</title>
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='slim' %}
+</head>
+
+<body>
+{% include 'includes/nav.html' %}
+<main>
+  <div class="container">
+    <h1>{% block header %}Заказы{% endblock %}</h1>
+    {% bootstrap_messages %}
+    {% block content %}
+      <!-- Содержимое страницы-->
+    {% endblock %}
+  </div>
+</main>
+<!-- foother -->
+</body>
+
+</html>
